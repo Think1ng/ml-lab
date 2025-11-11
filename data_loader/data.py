@@ -41,12 +41,6 @@ class Data(ABC):
         """Load the dataset (to be implemented by subclasses)."""
         pass
 
-    @abstractmethod
-    def info(self) -> str:
-        """Return a short summary about the dataset."""
-        pass
-
-
     def __repr__(self):
         lines = []
         n_rows, n_cols = self.df.shape
