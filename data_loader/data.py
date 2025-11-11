@@ -46,8 +46,8 @@ class Data(ABC):
         n_rows, n_cols = self.df.shape
         lines.append(f"Data: {n_rows} datapoints, {n_cols} features\n")
 
-        for col in self.X.columns:
-            series = self.X[col]
+        for col in self.df.columns:
+            series = self.df[col]
             dtype = series.dtype
             n_missing = series.isna().mean() * 100
             max_val = series.max() if pd.api.types.is_numeric_dtype(series) else None
@@ -61,4 +61,3 @@ class Data(ABC):
             lines.append(line)
 
         return "\n".join(lines)
-
